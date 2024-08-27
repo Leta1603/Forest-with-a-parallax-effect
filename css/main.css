@@ -93,7 +93,7 @@ body {
 }
 
 .hero-content {
-  font-size: calc(var(--index) * 2.4);
+  font-size: calc(var(--index) * 2);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: calc(var(--index) * -0.15);
