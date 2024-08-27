@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --index: calc(1vw + 1vh);
+}
+
+@font-face {
+  font-family: kamerik-3d;
+  src: url(../fonts/kamerik205-heavy.woff2);
+}
+
+@font-face {
+  font-family: merriweather-3d;
+  src: url(../fonts/merriweather-regular-italic.woff2);
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: kamerik-3d;
+}
+
+.logo {
+  background-image: url("../img/logo.svg");
+  background-repeat: no-repeat;
+  width: calc(var(--index) * 7);
+  height: calc(var(--index) * 7);
+  position: absolute;
+  left: 50%;
+  top: calc(var(--index) * 2);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.layers {
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.layers:hover .layers__container {
+  will-change: transform;
+}
+
+.layers__container {
+  height: 100vh;
+  min-height: 500px;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+  transition: transform ease-in-out;
+}
+
+.layers__item {
+  position: absolute;
+  /* instead of top, bottom, left, right */
+  inset: -5vw;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layer-1 {
+  background-image: url("../img/layer-1.jpg");
+  transform: translateZ(-55px) scale(1.06);
+}
+
+.layer-2 {
+  background-image: url("../img/layer-2.png");
+  transform: translateZ(80px) scale(0.9);
+}
+
+.layer-3 {
+  transform: translateZ(180px) scale(0.8);
+}
+
+.layer-4 {
+  transform: translateZ(190px) scale(0.9);
+}
+
+.layer-5 {
+  background-image: url("../img/layer-5.png");
+  transform: translateZ(300px) scale(0.8);
+}
+
+.layer-6 {
+  background-image: url("../img/layer-6.png");
+  transform: translateZ(380px);
+}
+
+.hero-content {
+  font-size: calc(var(--index) * 2.9);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: calc(var(--index) * -0.15);
+  line-height: 1.35em;
+  margin-top: calc(var(--index) * 5.5);
+}
+
+.hero-content span {
+  display: block;
+}
+
+.hero-content__p {
+  text-transform: none;
+  font-family: merriweather-3d;
+  letter-spacing: normal;
+  font-size: calc(var(--index) * 0.8);
+  line-height: 3;
+}
+
+.button-start {
+  font-family: Arial;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: calc(var(--index) * 0.7);
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 10em;
+  border: 3px solid rgb(255, 255, 255, 0.4);
+  outline: none;
+  cursor: pointer;
+}
+
+.layer-4,
+.layer-5,
+.layer-6 {
+  pointer-events: none;
+}
